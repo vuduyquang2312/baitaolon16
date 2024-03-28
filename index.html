@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop bán đồng hồ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 64px;
+            color: #222;
+        }
+
+        h2 {
+            font-size: 46px;
+            line-height: 54px;
+            color: #222;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #222;
+        }
+
+        h6 {
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #465b52;
+            margin: 15px 0 20px 0;
+        }
+
+        .section-p1 {
+            padding: 40px 80px;
+        }
+
+        .section-m1 {
+            margin: 40px 0;
+        }
+
+        button.normal {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 15px 30px;
+            color: #000;
+            background-color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        body {
+            width: 100%;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 80px;
+            background: #E3E6F3;
+            z-index: 999;
+            position: sticky;
+            top: 0;
+            left: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #navbar li {
+            list-style: none;
+            padding: 0 20px;
+            position: relative;
+
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: 0.3s ease;
+        }
+
+        /* #navbar li a:hover,
+        #navbar li a.active {
+            color: #088178;
+        } */
+
+        #navbar li a:hover::after {
+            content: "";
+            width: 30%;
+            height: 2px;
+            background: #088178;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+
+        #hero {
+            background-image: url();
+            height: 90vh;
+            width: 100%;
+            background-size: cover;
+            background-position: top 25% right 0;
+            padding: 0 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        #hero h4 {
+            padding-bottom: 15px;
+        }
+
+        #hero h1 {
+            color: #088178;
+        }
+
+        #hero button {
+            background-color: transparent;
+            border: 1px solid #088178;
+            padding: 14px 80px 14px 65px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        #hero button:hover {
+            color: #088178;
+        }
+
+        #feature {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        #feature .fe-box {
+            width: 180px;
+            text-align: center;
+            padding: 25px 15px;
+            box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+            border: 1px solid #cce7d0;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        #feature .fe-box:hover {
+            box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
+
+        }
+
+        #feature .fe-box img {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #feature .fe-box h6 {
+            padding: 9px 8px 6px 8px;
+            line-height: 1;
+            border-radius: 4px;
+            color: #725d5d;
+            background: linear-gradient(to right, #EFB6FF, #CFB8FD);
+        }
+
+        #feature .fe-box:nth-child(2) h6 {
+            background: linear-gradient(to right, #EFB6FF, #CFB8FD);
+        }
+
+        #feature .fe-box:nth-child(3) h6 {
+            background: linear-gradient(to right, #EFB6FF, #CFB8FD);
+        }
+
+        #feature .fe-box:nth-child(4) h6 {
+            background: linear-gradient(to right, #EFB6FF, #CFB8FD);
+        }
+
+        #feature .fe-box:nth-child(5) h6 {
+            background: linear-gradient(to right, #EFB6FF, #CFB8FD);
+        }
+
+        #feature .fe-box:nth-child(6) h6 {
+            background: linear-gradient(to right, #EFB6FF, #CFB8FD);
+        }
+
+        #product1 {
+            text-align: center;
+        }
+
+        #product1 .pro-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        #product1 .pro {
+            width: 23%;
+            min-width: 250px;
+            padding: 10px 12px;
+            border: 1px solid #cce7d0;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+            margin: 15px 0;
+            transition: 0.2s ease;
+            position: relative;
+        }
+
+        #product1 .pro:hover {
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        #product1 .pro img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        #product1 .pro .des {
+            text-align: start;
+            padding: 10px 0;
+        }
+
+        #product1 .pro .des span {
+            color: #606063;
+            font-size: 12px;
+        }
+
+        #product1 .pro .des h5 {
+            padding-top: 7px;
+            color: #1a1a1a;
+            font-size: 14px;
+
+        }
+
+        #product1 .pro .des i {
+            font-size: 12px;
+            color: rgb(243, 181, 25);
+        }
+
+        #product1 .pro .des h4 {
+            padding-top: 7px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #088178;
+        }
+
+        #product1 .pro .cart {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50px;
+            background-color: #e8f6ea;
+            font-weight: 500;
+            color: #088178;
+            border: 1px solid #cdebbc;
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+        }
+
+        #banner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #cdd4f8;
+            width: 100%;
+            height: 40vh;
+        }
+
+        #banner h4 {
+            color: black;
+            font-size: 16px;
+        }
+
+        #banner h2 {
+            color: #fff;
+            font-size: 30px;
+            padding: 10px 0;
+        }
+
+        #banner h2 span {
+            color: #ef3636;
+        }
+
+        #banner button:hover {
+            background: #088178;
+            color: #fff;
+        }
+
+        #newsletter {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            background: #f6dbf6;
+        }
+
+        #newsletter h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        #newsletter p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #818ea0;
+        }
+
+        #newsletter .form {
+            display: flex;
+            width: 40%;
+            ;
+        }
+
+        #newsletter span {
+            color: #ffbd27;
+        }
+
+        #newsletter input {
+            height: 3.125rem;
+            padding: 0 1.25em;
+            font-size: 14px;
+            width: 100%;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            outline: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        #newsletter button {
+            background-color: #088178;
+            color: #fff;
+            white-space: nowrap;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="header">
+        <a href=""><img src="" alt="" class="logo"></a>
+        <a href="/" style="position: absolute;color: #000; margin: 15px 0 20px 0; left: 30px; cursor: pointer;">
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+        <p id="welcomeMessage" style="position: absolute;"></p>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="home">Trang chủ</a></li>
+                <li><a href="#" onclick="scrollToSection('product1')">Cửa hàng</a></li>
+                <li><a href="shopping" id="cartLink"><i class="fa-solid fa-shopping-cart"></i> Giỏ hàng <span
+                            id="cartItemCount" style="color: #ac2a58;"></span></a></li>
+                <li><a href="#" id="lienhe">Liên hệ</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="hero">
+        <h4></h4>
+        <h2>Ưu đãi siêu giá trị</h2>
+        <h1>Trên tất cả các sản phẩm</h1>
+        <p>Tiết kiệm nhiều hơn với phiếu giảm giá và giảm giá tới 70%!</p>
+        <button class="shopnow" onclick="scrollToSection('product1')">Mua ngay</button>
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <h6>Miễn phí vận chuyển</h6>
+        </div>
+        <div class="fe-box">
+            <h6>Đặt hàng trực tuyến</h6>
+        </div>
+        <div class="fe-box">
+            <h6>Tiết kiệm tiền</h6>
+        </div>
+        <div class="fe-box">
+            <h6>Khuyến mãi</h6>
+        </div>
+        <div class="fe-box">
+            <h6>Người bán tận tình</h6>
+        </div>
+        <div class="fe-box">
+            <h6>Hỗ trợ</h6>
+        </div>
+
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>ĐỒNG HỒ BÁN CHẠY & ĐẸP</h2>
+        <p></p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2021/05/hinh-anh-dong-ho-casio-mtp-1374l-1avdf-nam-pin-day-da-new-1.jpg"
+                    alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio MTP-1374L-1AVDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2.270.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart" id="add-product"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2021/05/hinh-anh-AE-1200WHD-1AVDF-new-2.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio AE-1200WHD-1AVDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>1.506.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2018/09/casio-mtp-1374d-1avdf.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio MTP-1374D-1AVDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2.394.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2023/04/dong-ho-Casio-MTP-VT01L-1BUDF-1.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio MTP-VT01L-1BUDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>1.182.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2020/01/casio-LTP-V300L-7A2UDF-600x700.jpg" alt="">
+                <div class="des">
+                    <span>Nữ</span>
+                    <h5>Casio LTP-V300L-7A2UDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>1.752.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2018/09/dong-ho-casio-b640wc-5adf-pin-nam-inox-1-1-600x700.jpg"
+                    alt="">
+                <div class="des">
+                    <span>Nữ</span>
+                    <h5>Casio B640WC-5ADF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2.085.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2018/09/casio-ltp-v300l-4audf-600x700.jpg" alt="">
+                <div class="des">
+                    <span>Nữ</span>
+                    <h5>Casio LTP-V300L-4AUDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>1.752.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2023/04/MqKplko6-dong-ho-casio-ltp-v300l-1audf-nu-quartz.jpg"
+                    alt="">
+                <div class="des">
+                    <span>Nữ</span>
+                    <h5>Casio LTP-V300L-1AUDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>1.752.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Dịch vụ sửa chữa</h4>
+        <h2>Giảm giá tới <span>70%</span> - Tất cả đồng hồ & phụ kiện</h2>
+        <button class="normal">Khám phá thêm</button>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>ĐỒNG HỒ CASIO</h2>
+        <p></p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2018/09/dong-ho-casio-efr-526l-7avudf-nam-pin-day-da-a-1-600x700.jpg"
+                    alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio Edifice EFR-526L-7AVUDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>3.426.000₫</h4>
+                </div>
+                <a href=""><i class="fa-solid fa-plus cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2017/10/casio-edifice-EFV-550L-1AVUDF.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio Edifice EFV-550L-1AVUDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>3.610.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2008/01/casio-edifice-EFR-526L-1AVUDF-600x700.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio Edifice EFR-526L-1AVUDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>3.426.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2018/09/dong-ho-casio-efr-526d-7avudf-nam-pin-day-inox-a-1-600x700.jpg"
+                    alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio Edifice EFR-526D-7AVUDF</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>3.610.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2020/01/casio-g-shock-GA-2000S-1ADR-600x700.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio G-Shock GA-2000S-1ADR</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>4.484.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2020/01/casio-g-shock-GA-2100-1ADR-600x700.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio G-Shock GA-2100-1ADR</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>3.814.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2023/02/wDPw7yNx-casio-g-shock-GA-110-1ADR.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio G-Shock GA-110-1ADR</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>4.843.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+            <div class="pro">
+                <img src="https://media.shopdongho.com/2020/01/casio-g-shock-GA-2100-1A1DR-600x700.jpg" alt="">
+                <div class="des">
+                    <span>Nam</span>
+                    <h5>Casio G-Shock GA-2100-1A1DR</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>3.814.000₫</h4>
+                </div>
+                <i class="fa-solid fa-plus cart"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="section-p1">
+        <div class="newstext">
+            <h4>Đăng ký để nhận thông tin</h4>
+            <p>Nhận thông tin cập nhật qua Email về cửa hàng mới nhất của chúng tôi và các <span>ưu đãi đặc biệt.</span>
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" id="emailInput" placeholder="Vui lòng nhập Email của bạn">
+            <button class="normal" onclick="registerUser()">Đăng Kí</button>
+        </div>
+    </section>
+
+    <script>
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        // Lắng nghe sự kiện click trên thẻ <a> có id là "lienhe"
+        document.getElementById("lienhe").addEventListener("click", function (event) {
+            // Ngăn chặn hành vi mặc định của liên kết
+            event.preventDefault();
+
+            // Lấy vị trí (offset) của phần cuối trang
+            const footerOffset = document.getElementById("newsletter").offsetTop;
+
+            // Cuộn trang xuống phần cuối trong khoảng thời gian 500ms
+            window.scrollTo({
+                top: footerOffset,
+                behavior: "smooth"
+            });
+        });
+
+        var cartLink = document.getElementById("cartLink");
+
+        // Thêm sự kiện click vào liên kết "Giỏ hàng"
+        cartLink.addEventListener("click", function (event) {
+            // Ngăn chặn hành động mặc định của liên kết
+            event.preventDefault();
+
+            // Kiểm tra nội dung của thẻ <p> với id "welcomeMessage"
+            var welcomeMessage = document.getElementById("welcomeMessage").innerHTML;
+
+            // Nếu nội dung là "Vui lòng đăng nhập!"
+            if (welcomeMessage.trim() === "Vui lòng đăng nhập!") {
+                // Hiển thị thông báo yêu cầu đăng nhập
+                alert("Vui lòng đăng nhập!");
+            } else {
+                // Nếu nội dung khác "Vui lòng đăng nhập!", chuyển hướng đến trang shopping
+                window.location.href = "shopping";
+            }
+        });
+            document.addEventListener('DOMContentLoaded', function () {
+                // Khởi tạo biến để lưu số lượng click
+                let clickCount = 0;
+
+                const addToCartButtons = document.querySelectorAll('.pro .cart');
+
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', async function () {
+                        try {
+                            // Lấy tên người dùng từ thẻ p
+                            const username = document.getElementById('welcomeMessage').innerText;
+
+                            if (username === 'Vui lòng đăng nhập!') {
+                                // Nếu tên người dùng là 'Vui lòng đăng nhập!', hiển thị thông báo và không lưu dữ liệu
+                                alert('Vui lòng đăng nhập trước khi thêm vào giỏ hàng!');
+                            } else {
+                                // Nếu tên người dùng khác 'Vui lòng đăng nhập!', tăng giá trị số lượng click lên một
+                                clickCount++;
+
+                                // Lấy thông tin sản phẩm từ các thẻ h5 và h4 trong cùng phần tử cha
+                                const productName = this.parentNode.querySelector('h5').innerText;
+                                const productPrice = this.parentNode.querySelector('h4').innerText;
+
+                                document.getElementById('cartItemCount').innerText = "(" + clickCount + ")";
+
+                                // Tạo đối tượng dữ liệu sản phẩm
+                                const productData = {
+                                    username: username,
+                                    name: productName,
+                                    price: productPrice,
+                                    clickCount: clickCount // Thêm số lượng click vào dữ liệu sản phẩm
+                                };
+
+                                // Gửi yêu cầu POST đến server monggo
+                                const response = await fetch('/add-to-cart', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(productData)
+                                });
+
+                                if (!response.ok) {
+                                    throw new Error('Failed to add product to cart');
+                                }
+
+                                const data = await response.json();
+                                console.log('Product added to cart:', data);
+                            }
+                        } catch (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                });
+            });
+
+
+            // Lấy thông tin tên người dùng từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get('username');
+            // Lưu tên người dùng vào Local Storage
+            localStorage.setItem("username", username);
+
+            // Hiển thị thông báo "Xin chào" cùng với tên người dùng
+            if (username) {
+                const welcomeMessage = document.getElementById('welcomeMessage');
+                welcomeMessage.innerText = '' + username;
+            }
+            else {
+                welcomeMessage.innerText = 'Vui lòng đăng nhập!';
+            };
+            async function registerUser() {
+                const emailInput = document.getElementById('emailInput').value;
+
+                try {
+                    // Gửi yêu cầu POST đến server với dữ liệu email
+                    const response = await fetch('/email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email: emailInput })
+                    });
+
+                    // Kiểm tra phản hồi từ server
+                    if (!response.ok) {
+                        throw new Error('Failed to register email');
+                    }
+
+                    const data = await response.json();
+                    alert(data.message); // Hiển thị thông báo từ server
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Đã xảy ra lỗi khi đăng ký email');
+                }
+            }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 64px;
+            color: #222;
+        }
+
+        h2 {
+            font-size: 46px;
+            line-height: 54px;
+            color: #222;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #222;
+        }
+
+        h6 {
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #465b52;
+            margin: 15px 0 20px 0;
+        }
+
+        .section-p1 {
+            padding: 40px 80px;
+        }
+
+        .section-m1 {
+            margin: 40px 0;
+        }
+
+        button.normal {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 15px 30px;
+            color: #000;
+            background-color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        body {
+            width: 100%;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 80px;
+            background: #E3E6F3;
+            z-index: 999;
+            position: sticky;
+            top: 0;
+            left: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #navbar li {
+            list-style: none;
+            padding: 0 20px;
+            position: relative;
+
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: 0.3s ease;
+        }
+
+        #navbar li a:hover::after {
+            content: "";
+            width: 30%;
+            height: 2px;
+            background: #088178;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+
+        /* #shopping-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #088178;
+        }
+
+        #shopping-container p {
+            padding: 15px 20px 0px 0;
+            border-right: 2px solid #088178;
+        } */
+
+        #shopping-container div {
+            display: inline-block;
+            width: calc(33.33% - 20px);
+            /* Chia đều không gian cho 3 div */
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #088178;
+            border-bottom: 1px dotted black;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        /* CSS cho hàng tổng */
+        #total-row {
+            display: inline-block;
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #088178;
+            box-sizing: border-box;
+            font-weight: bold;
+            background-color: #f2f2f2;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .checkout {
+            right: 50px;
+            margin-top: 80px;
+            position: absolute;
+            border-radius: 5px;
+            height: 50px;
+            width: 160px;
+            background: #088178;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #phoneInput {}
+
+        #addressInput {}
+
+        #checkoutFormContainer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none;
+            width: 450px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #checkoutFormContainer h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #checkoutFormContainer label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+            width: 300px;
+        }
+
+
+
+        #checkoutFormContainer button {
+            padding: 12px;
+            /* Tăng padding cho nút */
+            font-size: 18px;
+            /* Tăng kích thước font cho nút */
+            background-color: #088178;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #checkoutFormContainer button:hover {
+            background-color: #86ccc8;
+        }
+
+        .closeButton {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+
+        /* Make adjustments for tablet */
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <a href=""><img src="" alt="" class="logo"></a>
+        <a href="/" style="position: absolute;color: #000; margin: 15px 0 20px 0; left: 30px; cursor: pointer;">
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+        <p id="welcomeMessage" style="position: absolute;"></p>
+        <a href="/" style="position: absolute;color: #000; margin: 15px 0 20px 0; left: 30px; cursor: pointer;">
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+        <p id="welcomeMessage" style="position: absolute;"></p>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="home">Trang chủ</a></li>
+                <li><a href="#" onclick="scrollToSection('product1')">Cửa hàng</a></li>
+                <li><a href="shopping"><i class="fa-solid fa-shopping-cart"></i> Giỏ hàng <span id="cartItemCount"
+                            style="color: #c01954;"></span></a></li>
+                <li><a href="#" id="lienhe">Liên hệ</a></li>
+            </ul>
+        </div>
+    </section>
+
+
+
+
+
+    <div id="shopping-container">
+        <p id="product-name"></p>
+        <p id="product-price"></p>
+        <p id="product-clickcount"></p>
+    </div>
+
+
+    <div class="totals">
+
+        <div class="totals-item totals-item-total">
+            <label style="position: absolute; right: 60px; margin-top: 30px;">Tổng: </label>
+        </div>
+    </div>
+
+    <button class="checkout">Thanh toán</button>
+    <div id="checkoutFormContainer" style="display: none;">
+        <h2>Thông tin thanh toán</h2>
+        <form id="checkoutForm">
+            <label for="fullName">Họ và Tên:</label><br>
+            <input type="text" id="fullName" name="fullName" style="width: 100%;height: 30px; border: 1px solid #088178;" required><br>
+
+            <label for="phoneNumber" style="margin-top: 10px;">Số điện thoại:</label><br>
+            <input type="tel" id="phoneNumber" name="phoneNumber" style="width: 100%;height: 30px; border: 1px solid #088178;" required><br>
+
+            <label for="email" style="margin-top: 10px;">Địa chỉ Email:</label><br>
+            <input type="email" id="email" name="email" style="width: 100%;height: 30px; border: 1px solid #088178;" required><br>
+
+            <label for="address" style="margin-top: 10px;">Địa chỉ:</label><br>
+            <input id="address" name="address" rows="4" cols="50" style="width: 100%;height: 30px; border: 1px solid #088178;"required></input><br>
+
+            <label for="paymentMethod" style="margin-top: 10px;">Hình thức thanh toán:</label><br>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="cash" style="border: 1px solid #1a1a1a;">Tiền mặt</option>
+                <option value="banking" style="border: 1px solid #1a1a1a;">Quét Mã QR</option>
+
+            </select><br><br>
+
+            <button type="submit" id="checkoutForm()">Xác nhận thanh toán</button>
+        </form>
+    </div>
+
+
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkoutButton = document.querySelector('.checkout');
+        const checkoutFormContainer = document.getElementById('checkoutFormContainer');
+
+        checkoutButton.addEventListener('click', function () {
+            checkoutFormContainer.style.display = 'block'; 
+        });
+
+        const checkoutForm = document.getElementById('checkoutForm');
+
+        checkoutForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+        });
+    });
+
+    let data; 
+let savedUsername;
+let productNames = []; // Mảng lưu trữ tên sản phẩm
+
+async function fetchData() {
+    try {
+        const response = await fetch('/api/data');
+        data = await response.json();
+
+        savedUsername = localStorage.getItem("username"); 
+
+        if (Array.isArray(data) && data.length > 0) {
+            const shoppingContainer = document.getElementById('shopping-container');
+            let totalRow = document.getElementById('total-row');
+            let totalPrice = 0; //tổng số tiền
+
+            data.forEach(product => {
+
+                const name = product.name;
+                const priceString = product.price.replace(/[^\d.-]/g, '');
+                const price = parseFloat(priceString) * 1000000;
+                const clickCount = parseInt(product.clickCount);
+                const username = product.username; 
+                product.clickCount = clickCount;
+
+                if (isNaN(price) || isNaN(clickCount)) {
+                    console.error('Error: Invalid price or clickCount for product', name);
+                    return;
+                }
+
+                if (username === savedUsername) {
+                    const productTotalPrice = price * clickCount; 
+                    totalPrice += productTotalPrice; 
+
+                    const divElement = document.createElement('div');
+
+                    const productNameElement = document.createElement('p');
+                    productNameElement.textContent = 'Sản phẩm: ' + name;
+                    productNameElement.classList.add('product-name'); // Thêm class 'product-name'
+
+                    const productPriceElement = document.createElement('p');
+                    productPriceElement.textContent = 'Giá: ' + price.toLocaleString() + "₫";
+
+                    const productClickCountElement = document.createElement('p');
+                    productClickCountElement.textContent = 'Số lượng: ' + clickCount;
+
+                    divElement.appendChild(productNameElement);
+                    divElement.appendChild(productPriceElement);
+                    divElement.appendChild(productClickCountElement);
+
+                    if (totalRow) {
+                        shoppingContainer.insertBefore(divElement, totalRow);
+                    } else {
+                        shoppingContainer.appendChild(divElement);
+                    }
+
+                    productNames.push(name); // Thêm tên sản phẩm vào mảng
+                }
+            });
+
+            const totalLabel = document.querySelector('.totals-item label');
+            totalLabel.textContent = 'Tổng: ' + totalPrice.toLocaleString() + '₫'; 
+        } else {
+            console.error('Error: Data is not an array or empty');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+window.onload = fetchData;
+
+
+// Trích dẫn từ mã JavaScript của bạn
+document.getElementById('checkoutForm').addEventListener('submit', async function (event) {
+    event.preventDefault(); 
+    if (!data) {
+        console.error('Lỗi: Dữ liệu chưa được fetch');
+        return;
+    }
+    const fullName = document.getElementById('fullName').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const email = document.getElementById('email').value;
+    const clickCount = data[0].clickCount;
+    const address = document.getElementById('address').value;
+    const paymentMethod = document.getElementById('paymentMethod').value;
+    const totalPriceLabel = document.querySelector('.totals-item label');
+    const totalPrice = totalPriceLabel.textContent.split(':')[1].trim(); 
+    const index = parseInt(document.getElementById('product-name').dataset.index); // Lấy chỉ số của sản phẩm từ thuộc tính dataset
+    const productName = productNames[index]; // Lấy tên sản phẩm từ mảng productNames
+
+    const formData = {
+        name: productName,
+        clickCount: clickCount,
+        username: savedUsername,
+        totalPrice: totalPrice,
+        fullName: fullName,
+        phoneNumber: phoneNumber,
+        email: email,
+        address: address,
+        paymentMethod: paymentMethod
+    };
+
+    try {
+        const response = await fetch('/api/saveData', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData) 
+        });
+
+        if (response.ok) {
+            console.log('Data saved successfully!');
+            alert("Cảm ơn bạn đã đặt hàng!");
+        } else {
+            console.error('Failed to save data:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+
+    </script>
+</body>
+
+</html>

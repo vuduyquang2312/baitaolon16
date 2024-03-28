@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+    text-align: center;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: left; /* Căn trái nội dung của form */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    width: 100%; /* Đặt chiều rộng của nhãn là 100% để nó căn hàng với ô input */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Đảm bảo ô input có kích thước chính xác */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="POST">
+            <label for="username">Tên đăng nhập:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Mật khẩu:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <a href="dangky">Tôi chưa có tài khoản ?</a>
+            <button type="submit">Đăng nhập</button>
+        </form>
+    </div>
+</body>
+</html>
